@@ -12,9 +12,9 @@
 	let chromeVersion = null;
 	let electronVersion = null;
 	if(typeof api !== "undefined") {
-		let nodeVersion = api.node();
-		let chromeVersion = api.chrome();
-		let electronVersion = api.electron();
+		nodeVersion = api.node();
+		chromeVersion = api.chrome();
+		electronVersion = api.electron();
 		runningInElectron = true;
 	}
 
