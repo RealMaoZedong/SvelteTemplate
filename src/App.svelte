@@ -7,9 +7,17 @@
 	import tailwindLogo from "./assets/tailwind.svg";
 	import typescriptLogo from "./assets/typescript.svg";
 
-	const nodeVersion = api.node();
-	const chromeVersion = api.chrome();
-	const electronVersion = api.electron();
+	let runningInElectron = false;
+	let nodeVersion = null;
+	let chromeVersion = null;
+	let electronVersion = null;
+	if(typeof api !== "undefined") {
+		let nodeVersion = api.node();
+		let chromeVersion = api.chrome();
+		let electronVersion = api.electron();
+		runningInElectron = true;
+	}
+
 </script>
 
 <main class="min-h-screen bg-slate-900 text-white flex flex-col">
@@ -63,9 +71,14 @@
 	<section class="flex flex-col items-center justify-center mt-6">
 		<h1 class="text-4xl font-bold">Vite + Svelte + TS + Electron + Tailwind</h1>
 		<p class="mt-6"> 
+			{#if runningInElectron}
 			Node version: {nodeVersion} | Chrome version: {chromeVersion} | Electron version:
 			{electronVersion}
+			{:else}
+			You are not running in Electron
+			{/if}
 		</p>
+			
 		<div>
 			<Counter />
 		</div>
