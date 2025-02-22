@@ -1,5 +1,6 @@
 # Vite + Svelte + Typescript + Electron + Tailwind
-
+# VERY OLD AND OUT OF DATE
+uses very old versions of the software
 ## Description
 I hate my self
 
